@@ -11,6 +11,10 @@ class CustomerRecord {
                 fullName: 'Kate Boe',
                 product: 'mortgage loan'
             }
-        ]
+        ];
     }
+}
+
+module.exports = {
+    CustomerRecord,
 }

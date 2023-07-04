@@ -1,1 +1,22 @@
 <h2>Customer's list</h2>
+<ul>
+    {{#each customersList}} {{! reference to customerList from 'customer-router' file }}
+        <li>
+            <label>
+                {{this.fullName}}
+                <select>
+                    <option value="">No products in use</option>
+                </select>
+            </label>
+            <button>Save</button>
+        </li>
+    {{/each}}
+</ul>
+<h2>Add new customer</h2>
+<form action="">
+    <label>
+        Full Name:
+        <input type="text">
+    </label>
+    <button>Save</button>
+</form>
