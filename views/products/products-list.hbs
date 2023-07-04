@@ -1,0 +1,21 @@
+<h2>Products list</h2>
+<ul>
+    {{#each productsList}} {{! reference to customerList from 'product-router' file }}
+        <li>
+            {{this.productName}} (financing period: {{this.periodInYears}} years)
+        </li>
+    {{/each}}
+</ul>
+
+<h2>Add new product</h2>
+<form action="">
+    <label>
+        Product name:
+        <input name="name" type="text">
+    </label>
+    <label>
+        Financing period (in years):
+        <input name="period" type="number">
+    </label>
+    <button>Save</button>
+</form>

@@ -4,12 +4,12 @@ class CustomerRecord {
             {
                 id: 'abc',
                 fullName: 'John Doe',
-                product: 'car leasing'
+                product: 'Car leasing'
             },
             {
                 id: 'def',
                 fullName: 'Kate Boe',
-                product: 'mortgage loan'
+                product: 'Mortgage loan'
             }
         ];
     }

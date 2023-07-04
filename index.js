@@ -4,6 +4,7 @@ const {engine} = require('express-handlebars');
 const {handleError} = require('./utils/errors');
 const {customerRouter} = require("./routers/customer-router");
 const {homeRouter} = require("./routers/home-router");
+const {productsRouter} = require("./routers/product-router");
 const app = express();
 
 app.use(methodOverride('_method'));
@@ -23,6 +24,7 @@ app.set('view engine', '.hbs'); // Settings for layouts/views engine.
 
 app.use('/', homeRouter);
 app.use('/customers', customerRouter);
+app.use('/products', productsRouter);
 
 
 

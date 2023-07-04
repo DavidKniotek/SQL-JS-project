@@ -7,7 +7,7 @@ customerRouter
 
             const customersList = CustomerRecord.listAll();
 
-            res.render('customers/list', {
+            res.render('customers/customers-list', {
                 customersList,
             });
         });
