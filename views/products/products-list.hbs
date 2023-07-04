@@ -8,14 +8,14 @@
 </ul>
 
 <h2>Add new product</h2>
-<form action="">
+<form action="/products" method="POST">
     <label>
         Product name:
-        <input name="name" type="text">
+        <input name="productName" type="text">
     </label>
     <label>
         Financing period (in years):
-        <input name="period" type="number">
+        <input name="periodInYears" type="number">
     </label>
     <button>Save</button>
 </form>
