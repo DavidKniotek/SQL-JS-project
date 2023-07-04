@@ -1,5 +1,6 @@
 const {Router} = require('express');
 const {ProductRecord} = require("../records/product.record");
+const {ValidationError} = require("../utils/errors");
 const productsRouter = Router();
 
 productsRouter
@@ -13,12 +14,10 @@ productsRouter
         })
 
         .post('/', async (req, res) => {
-            console.log(req.body)
             const data = {
                 ...req.body,
                 periodInYears: Number(req.body.periodInYears),
             };
-            console.log(data);
 
             const newProduct = new ProductRecord(data);
             await newProduct.insert();
