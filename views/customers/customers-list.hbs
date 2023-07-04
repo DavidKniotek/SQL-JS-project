@@ -6,6 +6,9 @@
                 {{this.fullName}}
                 <select>
                     <option value="">No products in use</option>
+                    {{#each ../productsList}} {{! "../" allows to go out from the context of first each and define productsList }}
+                        <option value="{{this.productName}}">{{this.productName}}</option>
+                    {{/each}}
                 </select>
             </label>
             <button>Save</button>
