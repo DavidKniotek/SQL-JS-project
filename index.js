@@ -2,6 +2,8 @@ const express = require('express');
 const methodOverride = require('method-override');
 const {engine} = require('express-handlebars');
 const {handleError} = require('./utils/errors');
+const {customerRouter} = require("./routers/customer-router");
+const {homeRouter} = require("./routers/home-router");
 const app = express();
 
 app.use(methodOverride('_method'));
@@ -19,12 +21,8 @@ app.set('view engine', '.hbs'); // Settings for layouts/views engine.
 
 
 
-app.get('/', (req, res) => {
-    res.redirect('/customers');
-});
-app.get('/customers', (req, res) => {
-    res.render('customers/list');
-});
+app.use('/', homeRouter);
+app.use('/customers', customerRouter);
 
 
 
