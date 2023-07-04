@@ -6,6 +6,7 @@ const {customerRouter} = require("./routers/customer-router");
 const {homeRouter} = require("./routers/home-router");
 const {productsRouter} = require("./routers/product-router");
 const app = express();
+require('./utils/db'); // Enables a db.js file during running the program.
 
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({
