@@ -13,7 +13,7 @@ class ProductRecord {
         }
 
         this.id = obj.id;
-        this.productName = obj.productName;
+        this.productName = obj.productName; // obj.productName references to input's property "name" in products-list.hbs file.
         this.periodInYears = obj.periodInYears;
     }
 
