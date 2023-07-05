@@ -7,12 +7,26 @@
                 <select>
                     <option value="">No products in use</option>
                     {{#each ../productsList}} {{! "../" allows to go out from the context of first each and define productsList }}
-                        <option value="{{this.productName}}">{{this.productName}}</option>
+                        <option value="{{this.id}}">{{this.productName}}</option>
                     {{/each}}
                 </select>
             </label>
             <button>Save</button>
         </li>
+    {{/each}}
+</ul>
+<h2>Customers with already active products</h2>
+<ul>
+    {{#each existedCustomersList}}
+        <li>
+            <label>
+                {{this.customerId}}:
+            </label>
+            <label>
+                {{this.productName}}
+            </label>
+        </li>
+
     {{/each}}
 </ul>
 <h2>Add new customer</h2>
