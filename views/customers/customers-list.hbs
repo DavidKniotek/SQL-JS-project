@@ -1,20 +1,20 @@
 <h2>Customers list</h2>
 <ul>
     {{#each customersList}} {{! reference to customerList from 'customer-router' file }}
-        <form action="/customers/products/{{this.id}}?_method=PATCH" method="POST">
             <li>
-                <label>
-                    {{this.fullName}}
-                    <select name="">
-                        <option value="">Choose product</option>
-                        {{#each ../productsList}} {{! "../" allows to go out from the context of first each and define productsList }}
-                            <option value="{{this.id}}">{{this.productName}}</option>
-                        {{/each}}
-                    </select>
-                </label>
-                <button>Save</button>
+                <form action="/customers/products/{{this.id}}?_method=PATCH" method="POST">
+                    <label>
+                        {{this.fullName}}
+                        <select name="productId">
+                            <option value="">Choose product</option>
+                            {{#each ../productsList}} {{! "../" allows to go out from the context of first each and define productsList }}
+                                <option value="{{this.id}}">{{this.productName}}</option>
+                            {{/each}}
+                        </select>
+                    </label>
+                    <button>Save</button>
+                </form>
             </li>
-        </form>
     {{/each}}
 </ul>
 <h2>Customers with already active products</h2>

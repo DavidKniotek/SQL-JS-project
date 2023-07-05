@@ -33,6 +33,13 @@ class ProductRecord {
         const [results] = await pool.execute("SELECT * FROM `products`");
         return results;
     }
+
+    static async getOne(id) {
+        const [result] = await pool.execute("SELECT * FROM `products` WHERE `id` = :id", {
+            id,
+        });
+        return result.length === 0 ? null : result[0];
+    }
 }
 
 module.exports = {

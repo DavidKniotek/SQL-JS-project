@@ -28,6 +28,13 @@ class CustomerRecord {
         const [results] = await pool.execute("SELECT * FROM `customers` ORDER BY `fullName` ASC");
         return results;
     }
+
+    static async getOne(id) {
+        const [result] = await pool.execute("SELECT * FROM `customers` WHERE `id` = :id", {
+            id,
+        });
+        return result.length === 0 ? null : result[0];
+    }
 }
 
 module.exports = {
