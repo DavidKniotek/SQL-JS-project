@@ -18,7 +18,7 @@ class CustomerRecord {
             this.id = uuid();
         }
 
-        await pool.execute("INSERT INTO `customers` VALUES(:id, :fullName)", {
+        await pool.execute("INSERT INTO `customers`(`id`, `fullName`) VALUES(:id, :fullName)", {
             id: this.id,
             fullName: this.fullName,
         });
