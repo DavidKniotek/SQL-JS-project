@@ -4,16 +4,24 @@ const {ProductRecord} = require("../records/product.record");
 const customerRouter = Router();
 
 customerRouter
-        .get('/', (req, res) => {
+        .get('/', async (req, res) => {
 
-            const customersList = CustomerRecord.listAll();
-            const productsList = ProductRecord.listAll()
+            const customersList = await CustomerRecord.listAll();
+            const productsList = await ProductRecord.listAll()
 
             res.render('customers/customers-list', {
                 customersList,
                 productsList,
             });
-        });
+        })
+
+        .post('/', async (req, res) => {
+
+            const newCustomer = new CustomerRecord(req.body);
+            await newCustomer.insert();
+
+            res.redirect('/customers');
+        })
 
 module.exports = {
     customerRouter,

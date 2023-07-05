@@ -16,10 +16,10 @@
     {{/each}}
 </ul>
 <h2>Add new customer</h2>
-<form action="">
+<form action="/customers" method="POST">
     <label>
         Full Name:
-        <input type="text">
+        <input name="fullName" type="text">
     </label>
     <button>Save</button>
 </form>
