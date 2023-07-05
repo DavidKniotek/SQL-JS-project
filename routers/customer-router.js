@@ -39,6 +39,13 @@ customerRouter
 
             const product = req.body.productId === '' ? null : await ProductRecord.getOne(req.body.productId);
             console.log(product);
+
+            console.log(customer.productId) // CONTINUE FROM HERE
+
+            // customer.productId = product?.id ?? null;
+            // await customer.update();
+
+            res.redirect('/customers');
         })
 
 module.exports = {

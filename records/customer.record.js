@@ -13,16 +13,12 @@ class CustomerRecord {
         this.fullName = obj.fullName; // obj.fullName references to input's property "name" in customers-list.hbs file.
     }
 
-    async insert() {
-        if (!this.id) {
-            this.id = uuid();
-        }
-
-        await pool.execute("INSERT INTO `customers`(`id`, `fullName`) VALUES(:id, :fullName)", {
+    async update() {
+        await pool.execute("UPDATE `customers` SET `fullName` = :fullName, `productId` = :productId WHERE `id` = :id ", {
             id: this.id,
             fullName: this.fullName,
+            productId: this.productId,
         });
-        return this.id;
     }
     static async listAll() {
         const [results] = await pool.execute("SELECT * FROM `customers` ORDER BY `fullName` ASC");
@@ -33,7 +29,7 @@ class CustomerRecord {
         const [result] = await pool.execute("SELECT * FROM `customers` WHERE `id` = :id", {
             id,
         });
-        return result.length === 0 ? null : result[0];
+        return result.length === 0 ? null : new CustomerRecord(result[0]);
     }
 }
 
